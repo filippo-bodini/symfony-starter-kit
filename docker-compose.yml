@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=symfony
+      - MYSQL_USER=symfony
+      - MYSQL_PASSWORD=symfony
+      - MYSQL_ROOT_PASSWORD=symfony
+    volumes:
+      - mysql:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: ./build/php/Dockerfile
+    working_dir: /var/www
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+    command: serve --port=8000
+    volumes:
+      - ./src:/var/www
+
+volumes:
+  mysql:
