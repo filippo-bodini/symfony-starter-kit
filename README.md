@@ -12,6 +12,14 @@ If you don't see anything right away, just wait up to one minute, since it usual
 
 You can anyway follow the log with `docker-compose logs -f app`.
 
+## Requirements
+
+This package requires a Linux environment with:
+
+* GNU Make
+* Docker
+* docker-compose
+
 ## Other
 
 This package is realeased under MIT license (see LICENSE file).
